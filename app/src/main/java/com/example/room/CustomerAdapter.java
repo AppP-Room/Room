@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHolder> implements OnCustomerItemClickLitener{
-    ArrayList<Customer> items = new ArrayList<~>();
+    ArrayList<Customer> items = new ArrayList<>();
 
-    OnCustomerItemClickListener listener;
+    OnCustomerItemClickLitener listener;
 
     @NonNull
     @Override
@@ -29,7 +29,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Customer item = items.get(position);
         ViewHolder viewHolder;
-        viewHolder.setItem(item);
+        holder.setItem(item);
 
     }
 
@@ -49,12 +49,12 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     public void setItem(int position, Customer item){
         items.set(position, item);
     }
-    public void setOnItemClickListener(onCustomerItemCLickListener listener){
+    public void setOnItemClickListener(OnCustomerItemClickLitener listener){
         this.listener = listener;
     }
     @Override
     public void onItemClick(ViewHolder holder, View view, int position){
-        if(listner !=null){
+        if(listener !=null){
             listener.onItemClick(holder, view, position);
         }
     }
@@ -65,7 +65,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
         TextView textView3;
         ImageView imageView;
 
-        public ViewHolder(View itemView, final OnCustomerItemClickListener listener){
+        public ViewHolder(View itemView, final CustomerAdapter listener){
             super(itemView);
 
             textView = itemView.findViewById(R.id.textView);
@@ -83,9 +83,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
         }
         public void setItem(Customer item){
             textView.setText(item.getName());
-            textView2.setText(item.getBirth());
-            textView3.setText(item.getMobile());
-            imageView.setImageResource(item.getResId());
+            textView2.setText(item.getpos());
+            textView3.setText(item.getNum());
+            imageView.setImageResource(item.getNum());
         }
     }
 }
