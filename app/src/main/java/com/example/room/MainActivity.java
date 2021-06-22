@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText editText;
-    EditText editText2;
-    EditText editText3;
+    Button editText;
+    Button editText2;
+    Button editText3;
     TextView textView;
     RecyclerView recyclerView;
     CustomerAdapter adapter;
@@ -39,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
             Customer item = adapter.getItem(position);
         });
 
-        Button button = findViewById(R.id.button);
+      /*  Button button = findViewById(R.id.button);
         button.setOnClickListener((view)->{
-            String name = editText.getText().toString();+
-            String birth = editText2.getText().toString();
-            String mobile = editText3.getText().toString();
+            String name = editText.getText().toString();
+            String num = editText2.getText().toString();
+            String pos = editText3.getText().toString();
 
-            adapter.addItem(new Customer(name, birth, mobile, R.drawable.dog));
+            adapter.addItem(new Customer(name, num, pos, R.drawable.dog));
             adapter.notifyDataSetChanged();
 
             textView.setText(adapter.getItemCount() + " 명");
-        });
+        });*/
+
     }
 }
