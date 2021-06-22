@@ -1,68 +1,54 @@
-package com.example.fragment_1;
+package com.example.room;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Button button1, button2, button3;
-    FragmentManager manager;
-    FragmentTransaction ft;
-
-    Fragment_1 fragment_1;
-    Fragment_2 fragment_2;
-    Fragment_3 fragment_3;
+public class MainActivity extends AppCompatActivity {
+    EditText editText;
+    EditText editText2;
+    EditText editText3;
+    TextView textView;
+    RecyclerView recyclerView;
+    CustomerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        manager = getSupportFragmentManager();
+        editText = findViewById(R.id.editText);
+        editText2 = findViewById(R.id.editText2);
+        editText3 = findViewById(R.id.editText3);
+        textView = findViewById(R.id.textView);
+        textView.setText("");
 
-        Button button1 = findViewById(R.id.button1);
-        Button button2 = findViewById(R.id.button2);
-        Button button3 = findViewById(R.id.button3);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        fragment_1 = new Fragment_1();
-        fragment_2 = new Fragment_2();
-        fragment_3 = new Fragment_3();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new CustomerAdapter();
+        recyclerView.setAdapter(adapter);
 
-        ft = manager.beginTransaction();
-        ft.add(R.id.main_frame, fragment_1);
-        ft.addToBackStack(null);
-        ft.commit();
+        adapter.setOnItemClickListener((holder, view, position)->{
+            Customer item = adapter.getItem(position);
+        });
 
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-    }
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener((view)->{
+            String name = editText.getText().toString();+
+            String birth = editText2.getText().toString();
+            String mobile = editText3.getText().toString();
 
-    @Override
-    public void onClick(View v) {
-        ft = manager.beginTransaction();
+            adapter.addItem(new Customer(name, birth, mobile, R.drawable.dog));
+            adapter.notifyDataSetChanged();
 
-        int id = v.getId();
-
-        switch (id){
-            case R.id.button1:
-                ft.replace(R.id.main_frame, fragment1);
-                ft.commit();
-                break;
-
-            case R.id.button2:
-                ft.replace(R.id.main_frame, fragment2);
-                ft.commit();
-                break;
-            case R.id.button3:
-                ft.replace(R.id.main_frame, fragment3)     ;
-                ft.commit();
-                break;
-        }
+            textView.setText(adapter.getItemCount() + " 명");
+        });
     }
 }
