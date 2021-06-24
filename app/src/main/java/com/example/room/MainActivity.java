@@ -10,10 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button editText;
-    Button editText2;
-    Button editText3;
-    TextView textView;
+    Button button1;
+    Button button2;
+    Button button3;
     RecyclerView recyclerView;
     CustomerAdapter adapter;
 
@@ -22,11 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText = findViewById(R.id.editText);
-        editText2 = findViewById(R.id.editText2);
-        editText3 = findViewById(R.id.editText3);
-        textView = findViewById(R.id.textView);
-        textView.setText("");
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -38,18 +35,5 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener((holder, view, position)->{
             Customer item = adapter.getItem(position);
         });
-
-      /*  Button button = findViewById(R.id.button);
-        button.setOnClickListener((view)->{
-            String name = editText.getText().toString();
-            String num = editText2.getText().toString();
-            String pos = editText3.getText().toString();
-
-            adapter.addItem(new Customer(name, num, pos, R.drawable.dog));
-            adapter.notifyDataSetChanged();
-
-            textView.setText(adapter.getItemCount() + " 명");
-        });*/
-
     }
 }
