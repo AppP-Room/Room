@@ -2,14 +2,21 @@
 /*ExportDatabaseCSVTask task=new ExportDatabaseCSVTask();
 task.execute();*/
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.SyncStateContract;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.room.MainActivity;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 //new async task for file export to csv
@@ -148,7 +155,7 @@ private class ExportDatabaseCSVTask extends AsyncTask<String ,String, String>{
             csvWrite.writeNext(arrStr1);
 
             String arrStr[] ={listdata.get(0), listdata.get(1), listdata.get(2), listdata.get(3)};
-            csvWrite.writeNext(arrStr);   
+            csvWrite.writeNext(arrStr);
 
             csvWrite.close();
             return "";
