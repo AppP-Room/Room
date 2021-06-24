@@ -11,10 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button editText;
-    Button editText2;
-    Button editText3;
-    TextView textView;
+    Button button1;
+    Button button2;
+    Button button3;
     RecyclerView recyclerView;
     CustomerAdapter adapter;
 
@@ -23,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textView);
-        textView.setText("");
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -36,6 +36,5 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener((holder, view, position)->{
             Customer item = adapter.getItem(position);
         });
-
     }
 }
