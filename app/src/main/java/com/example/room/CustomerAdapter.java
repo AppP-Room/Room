@@ -60,7 +60,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView textView;
+        TextView textView1;
         TextView textView2;
         TextView textView3;
         ImageView imageView;
@@ -68,7 +68,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
         public ViewHolder(View itemView, final CustomerAdapter listener){
             super(itemView);
 
-            textView = itemView.findViewById(R.id.textView);
+            textView1 = itemView.findViewById(R.id.textView1);
             textView2 = itemView.findViewById(R.id.textView2);
             textView3 = itemView.findViewById(R.id.textView3);
             imageView = itemView.findViewById(R.id.imageView);
@@ -82,8 +82,8 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             });
         }
         public void setItem(Customer item){
-            textView.setText(item.getName());
-            textView2.setText(item.getpos());
+            textView1.setText(item.getName());
+            textView2.setText(item.getAdd());
             textView3.setText(item.getNum());
             imageView.setImageResource(item.getNum());
         }
