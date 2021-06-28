@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <?xml version="1.0" encoding="utf-8"?>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,36 +28,36 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginEnd="100dp"
                 android:layout_marginRight="100dp"
-                android:layout_weight="10dp"
+                android:layout_weight="1"
                 android:text="자리 확인"
                 app:backgroundTint="#6F33A3" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginEnd="100dp"
                 android:layout_marginRight="100dp"
-                android:layout_weight="10dp"
+                android:layout_weight="1"
                 android:text="자리 예매"
                 app:backgroundTint="#A141CA" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
-                android:layout_weight="1dp"
+                android:layout_weight="1"
                 android:text="마이 페이지"
                 app:backgroundTint="#7544CF" />
         </LinearLayout>
