@@ -26,7 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-class fragement_1 extends AppCompatActivity implements OnMapReadyCallback{
+class Fragement_1 extends AppCompatActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
 
